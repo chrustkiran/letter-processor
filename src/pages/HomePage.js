@@ -1,7 +1,7 @@
 import React from "react";
 import {Badge, Button, Col, Divider, Input, message, Modal, Radio, Row, Select, Spin, Upload, Tag} from "antd";
 import {FileExcelTwoTone, FolderOpenTwoTone, InboxOutlined} from '@ant-design/icons';
-import {FileService} from "../services/FileService";
+import {FileService, url} from "../services/FileService";
 
 const {Dragger} = Upload;
 const {Option} = Select;
@@ -79,7 +79,7 @@ export class HomePage extends React.Component {
     conf = {
         name: 'file',
         multiple: false,
-        action: 'http://localhost:8080/file/upload',
+        action: url + 'file/upload',
         onChange: (info) => {
             this.onChangeStatus(info);
         },

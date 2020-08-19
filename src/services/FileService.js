@@ -1,4 +1,4 @@
-const url = 'https://polar-falls-02493.herokuapp.com/';
+export const url = 'https://polar-falls-02493.herokuapp.com/';
 
 export const FileService = {
     getFiles: () => {
