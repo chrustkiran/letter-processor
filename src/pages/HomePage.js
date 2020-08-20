@@ -13,8 +13,6 @@ export class HomePage extends React.Component {
         this.getFiles();
     }
 
-    selectedSubject = '';
-
     state = {
         totalFile: 0,
         files: [],
@@ -22,6 +20,7 @@ export class HomePage extends React.Component {
         selectedFile: '',
         roadId: '',
         searching: false,
+        selectedSubject: ''
     };
 
     getFiles = () => {
@@ -120,9 +119,7 @@ export class HomePage extends React.Component {
 
 
     onSubjectChanges = (value) => {
-        //this.setState({selectedSubject: value})
-        this.selectedSubject = value;
-        console.log(value);
+        this.setState({selectedSubject: value});
     };
 
     onSubjectSearch = (val) => {
@@ -136,7 +133,7 @@ export class HomePage extends React.Component {
     searchLetter = () => {
         this.setState({letters: null});
         const bodyObj = {
-            rows: this.state.subjects[this.selectedSubject],
+            rows: this.state.subjects[this.state.selectedSubject],
             RoadId: this.state.roadId
         };
         this.setState({searching: true});
@@ -214,6 +211,13 @@ export class HomePage extends React.Component {
                         </Button>
                     </Col>
                 </Row>
+                }
+                <br/>
+                <br/>
+                {this.state.selectedSubject &&
+                <div>
+                    Total <b>{this.state.subjects[this.state.selectedSubject].length}</b> letters on subject <b>{this.state.selectedSubject}</b>
+                </div>
                 }
                 <br/>
                 <br/>
